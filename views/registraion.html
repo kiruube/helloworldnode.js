@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Hello-world/public/css/registration.css">
+
+</head>
+<body>
+    <div class="container mt-5" id="form">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">DayStar Application Form</div>
+    
+                    <div class="card-body">
+                        <form id="daycareApplicationForm" novalidate>
+                            <!-- Child's Information -->
+                            <h5>Child's Information</h5>
+                            <div class="form-group">
+                                <label for="childName">Child's Name</label>
+                                <input type="text" class="form-control" id="childName" name="childName">
+                                <div class="error-message" id="childNameError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select class="form-control" id="gender" name="gender">
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                                <div class="error-message" id="genderError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dateOfBirth">Date of Birth</label>
+                                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+                                <div class="error-message" id="dateOfBirthError"></div>
+                            </div>
+    
+                            <!-- Parents' Information -->
+                            <h5>Parents' Information</h5>
+                            <div class="form-group">
+                                <label for="fatherName">Father's Name</label>
+                                <input type="text" class="form-control" id="fatherName" name="fatherName">
+                                <div class="error-message" id="fatherNameError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="fatherPhone">Father's Telephone Number</label>
+                                <input type="tel" class="form-control" id="fatherPhone" name="fatherPhone">
+                                <div class="error-message" id="fatherPhoneError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="fatherEmail">Father's Email</label>
+                                <input type="email" class="form-control" id="fatherEmail" name="fatherEmail">
+                                <div class="error-message" id="fatherEmailError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="fatherNationality">Father's Nationality</label>
+                                <input type="text" class="form-control" id="fatherNationality" name="fatherNationality">
+                                <div class="error-message" id="fatherNationalityError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="fatherOccupation">Father's Occupation</label>
+                                <input type="text" class="form-control" id="fatherOccupation" name="fatherOccupation">
+                                <div class="error-message" id="fatherOccupationError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="motherName">Mother's Name</label>
+                                <input type="text" class="form-control" id="motherName" name="motherName">
+                                <div class="error-message" id="motherNameError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="motherPhone">Mother's Telephone Number</label>
+                                <input type="tel" class="form-control" id="motherPhone" name="motherPhone">
+                                <div class="error-message" id="motherPhoneError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="motherEmail">Mother's Email</label>
+                                <input type="email" class="form-control" id="motherEmail" name="motherEmail">
+                                <div class="error-message" id="motherEmailError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="motherNationality">Mother's Nationality</label>
+                                <input type="text" class="form-control" id="motherNationality" name="motherNationality">
+                                <div class="error-message" id="motherNationalityError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="motherOccupation">Mother's Occupation</label>
+                                <input type="text" class="form-control" id="motherOccupation" name="motherOccupation">
+                                <div class="error-message" id="motherOccupationError"></div>
+                            </div>
+    
+                            <!-- Other Information -->
+                            <h5>Other Information</h5>
+                            <div class="form-group">
+                                <label for="nationality">Nationality</label>
+                                <input type="text" class="form-control" id="nationality" name="nationality">
+                                <div class="error-message" id="nationalityError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="religion">Religion</label>
+                                <input type="text" class="form-control" id="religion" name="religion">
+                                <div class="error-message" id="religionError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="medicalBackground">Medical Background</label>
+                                <textarea class="form-control" id="medicalBackground" name="medicalBackground" rows="3"></textarea>
+                                <div class="error-message" id="medicalBackgroundError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Is the child an orphan?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="isOrphan" id="isOrphanYes" value="yes">
+                                    <label class="form-check-label" for="isOrphanYes">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="isOrphan" id="isOrphanNo" value="no" checked>
+                                    <label class="form-check-label" for="isOrphanNo">No</label>
+                                </div>
+                            </div>
+                            <div class="form-group" id="guardianDetails" style="display: none;">
+                                <h5>Guardian's Details</h5>
+                                <div class="form-group">
+                                    <label for="guardianName">Guardian's Name</label>
+                                    <input type="text" class="form-control" id="guardianName" name="guardianName">
+                                    <div class="error-message" id="guardianNameError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="guardianPhone">Guardian's Telephone Number</label>
+                                    <input type="tel" class="form-control" id="guardianPhone" name="guardianPhone">
+                                    <div class="error-message" id="guardianPhoneError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="guardianEmail">Guardian's Email</label>
+                                    <input type="email" class="form-control" id="guardianEmail" name="guardianEmail">
+                                    <div class="error-message" id="guardianEmailError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="relationshipStatus">Relationship Status with the Child</label>
+                                    <input type="text" class="form-control" id="relationshipStatus" name="relationshipStatus">
+                                    <div class="error-message" id="relationshipStatusError"></div>
+                                </div>
+                            </div>
+    
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+creating a route
+//Dependencies
+const express = require('express');
+
+//Instantiations
+const app = express();
+
+// Middleware
+app.use(express.urlencoded({extended:true}));
+
+//Get route for the sign up form
+app.get('/signup', function(req, res){
+    res.sendFile(__dirname + "/signup.html");
+});
+
+// post route for the sign up form
+app. post('/signup', function(req, res){
+    console.log(req.body);
+    // res.redirect("/index");
+    res.send("You have signed up successfully");
+});
+
+// For invalid routes
+app.get('*', function(req, res){
+    res.send("404! This is an invalid URI");
+})
+
+// BootstrappingServer
+app.listen(3500, () => console.log('listening on port 3500')); // new
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

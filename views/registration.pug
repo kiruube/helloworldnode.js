@@ -1,0 +1,112 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+#form.container.mt-5
+  .row.justify-content-center
+    .col-md-8
+      .card
+        .card-header DayStar Application Form
+        .card-body
+          form#daycareApplicationForm(novalidate='')
+            // Child's Information
+            h5 Child&apos;s Information
+            .form-group
+              label(for='childName') Child&apos;s Name
+              input#childName.form-control(type='text' name='childName')
+              #childNameError.error-message
+            .form-group
+              label(for='gender') Gender
+              select#gender.form-control(name='gender')
+                option(value='') Select Gender
+                option(value='male') Male
+                option(value='female') Female
+              #genderError.error-message
+            .form-group
+              label(for='dateOfBirth') Date of Birth
+              input#dateOfBirth.form-control(type='date' name='dateOfBirth')
+              #dateOfBirthError.error-message
+            // Parents' Information
+            h5 Parents&apos; Information
+            .form-group
+              label(for='fatherName') Father&apos;s Name
+              input#fatherName.form-control(type='text' name='fatherName')
+              #fatherNameError.error-message
+            .form-group
+              label(for='fatherPhone') Father&apos;s Telephone Number
+              input#fatherPhone.form-control(type='tel' name='fatherPhone')
+              #fatherPhoneError.error-message
+            .form-group
+              label(for='fatherEmail') Father&apos;s Email
+              input#fatherEmail.form-control(type='email' name='fatherEmail')
+              #fatherEmailError.error-message
+            .form-group
+              label(for='fatherNationality') Father&apos;s Nationality
+              input#fatherNationality.form-control(type='text' name='fatherNationality')
+              #fatherNationalityError.error-message
+            .form-group
+              label(for='fatherOccupation') Father&apos;s Occupation
+              input#fatherOccupation.form-control(type='text' name='fatherOccupation')
+              #fatherOccupationError.error-message
+            .form-group
+              label(for='motherName') Mother&apos;s Name
+              input#motherName.form-control(type='text' name='motherName')
+              #motherNameError.error-message
+            .form-group
+              label(for='motherPhone') Mother&apos;s Telephone Number
+              input#motherPhone.form-control(type='tel' name='motherPhone')
+              #motherPhoneError.error-message
+            .form-group
+              label(for='motherEmail') Mother&apos;s Email
+              input#motherEmail.form-control(type='email' name='motherEmail')
+              #motherEmailError.error-message
+            .form-group
+              label(for='motherNationality') Mother&apos;s Nationality
+              input#motherNationality.form-control(type='text' name='motherNationality')
+              #motherNationalityError.error-message
+            .form-group
+              label(for='motherOccupation') Mother&apos;s Occupation
+              input#motherOccupation.form-control(type='text' name='motherOccupation')
+              #motherOccupationError.error-message
+            // Other Information
+            h5 Other Information
+            .form-group
+              label(for='nationality') Nationality
+              input#nationality.form-control(type='text' name='nationality')
+              #nationalityError.error-message
+            .form-group
+              label(for='religion') Religion
+              input#religion.form-control(type='text' name='religion')
+              #religionError.error-message
+            .form-group
+              label(for='medicalBackground') Medical Background
+              textarea#medicalBackground.form-control(name='medicalBackground' rows='3')
+              #medicalBackgroundError.error-message
+            .form-group
+              label Is the child an orphan?
+              .form-check
+                input#isOrphanYes.form-check-input(type='radio' name='isOrphan' value='yes')
+                label.form-check-label(for='isOrphanYes') Yes
+              .form-check
+                input#isOrphanNo.form-check-input(type='radio' name='isOrphan' value='no' checked='')
+                label.form-check-label(for='isOrphanNo') No
+            #guardianDetails.form-group(style='display: none;')
+              h5 Guardian&apos;s Details
+              .form-group
+                label(for='guardianName') Guardian&apos;s Name
+                input#guardianName.form-control(type='text' name='guardianName')
+                #guardianNameError.error-message
+              .form-group
+                label(for='guardianPhone') Guardian&apos;s Telephone Number
+                input#guardianPhone.form-control(type='tel' name='guardianPhone')
+                #guardianPhoneError.error-message
+              .form-group
+                label(for='guardianEmail') Guardian&apos;s Email
+                input#guardianEmail.form-control(type='email' name='guardianEmail')
+                #guardianEmailError.error-message
+              .form-group
+                label(for='relationshipStatus') Relationship Status with the Child
+                input#relationshipStatus.form-control(type='text' name='relationshipStatus')
+                #relationshipStatusError.error-message
+            button.btn.btn-primary(type='submit') Submit Application

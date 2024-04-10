@@ -1,0 +1,25 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+.container
+  h2#lead Login
+  form
+    .form-group
+      label(for='loginType') Login as:
+      select#loginType.form-control
+        option(value='admin') Admin
+        option(value='stuff') Stuff
+    .form-group
+      label(for='userId') User ID:
+      input#userId.form-control(type='text')
+    .form-group
+      label(for='username') Username:
+      input#username.form-control(type='text')
+    .form-group
+      label(for='password') Password:
+      input#password.form-control(type='password')
+      input(type='checkbox' onclick='togglePassword()')
+      |  Show Password
+    button.btn.btn-primary(type='submit') Login

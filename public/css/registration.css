@@ -1,0 +1,9 @@
+
+#daycareApplicationForm{   
+   width: 600px;
+       margin: 2vh auto 0 auto;
+       padding: 20px;
+       background-color: rgb(240, 240, 240);
+       border-radius: 4px;
+       font-size: 13.5px;
+}
