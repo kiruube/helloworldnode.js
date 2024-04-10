@@ -6,6 +6,9 @@ const path = require('path');// for pug
 
 require("dotenv").config();
 
+//importing routes
+const registrationRoutes = require("./routes/registrationRoutes");
+
 //Instantiations
 const app = express();
 
@@ -31,8 +34,9 @@ app.set("views", path.join(__dirname, "views"));// specifying the directory the 
 
 
 // Middleware
+app.use(express.static(path.join(__dirname, "public")));// set directory for static files
 app.use(express.urlencoded({extended:true}));
-app.use(express.json());
+app.use(express.json());// To return data in the response path
 
 
 
@@ -42,11 +46,13 @@ app.use(express.json());
 app.get("/register", (req, res) => {
     res.render("registration");
 });
+//use imported routes
+app.use("/", registrationRoutes);
+
 
 app.get("/babylist", (req, res) => {
     res.render("babylist");
 });
-
 app.get("/login", (req, res) => {
     res.render("login");
 });
@@ -103,17 +109,17 @@ app.get("/login", (req, res) => {
 // });
 
 //Get route for the sign up form
-app.get('/signup', function(req, res){
-    res.sendFile(__dirname + "/signup.html");
-});
+// app.get('/signup', function(req, res){
+//     res.sendFile(__dirname + "/signup.html");
+// });
 
-// post route for the sign up form
-app. post('/signup', function(req, res){
-    console.log(req.body);
-    let signup = req.body
-    // res.redirect("/index");
-    res.json({message:"Signed up successfully",signup});
-});
+// // post route for the sign up form
+// app. post('/signup', function(req, res){
+//     console.log(req.body);
+//     let signup = req.body
+//     // res.redirect("/index");
+//     res.json({message:"Signed up successfully",signup});
+// });
 
 // For invalid routes
 app.get('*', function(req, res){

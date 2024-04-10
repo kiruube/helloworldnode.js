@@ -7,3 +7,7 @@
        border-radius: 4px;
        font-size: 13.5px;
 }
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+}

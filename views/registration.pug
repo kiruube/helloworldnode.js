@@ -2,8 +2,11 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Document
-#form.container.mt-5
+  title Registration Form
+  link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='css/registration.css')
+#form(action="register" method="POST")
+.container.mt-5
   .row.justify-content-center
     .col-md-8
       .card
@@ -110,3 +113,4 @@ head
                 input#relationshipStatus.form-control(type='text' name='relationshipStatus')
                 #relationshipStatusError.error-message
             button.btn.btn-primary(type='submit') Submit Application
+script(src="js/register.js") 
