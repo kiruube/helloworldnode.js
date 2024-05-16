@@ -27,8 +27,7 @@ const registrationSchema = new mongoose.Schema({
     },
     fatherEmail:{
         type: String,
-        trim: true,
-        unique:true
+        trim: true
     },
     fatherNationality:{
         type: String,
@@ -65,8 +64,7 @@ const registrationSchema = new mongoose.Schema({
     },
     motherEmail:{
         type: String,
-        trim: true,
-        unique:true
+        trim: true
     },
     motherOccupation:{
         type: String,
@@ -98,8 +96,8 @@ const registrationSchema = new mongoose.Schema({
     },
     guardianEmail:{
         type: String,
-        trim: true,
-        unique:true
+        trim: true
+
     }
 });
 

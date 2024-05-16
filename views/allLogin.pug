@@ -1,0 +1,49 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Daycare System
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
+  link(rel='stylesheet' href='style.css')
+  style.
+    /* Navbar styling */
+    .navbar a.nav-link {
+    color: #fff;
+    /* Default text color */
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    /* Apply transition effect to transform and color */
+    }
+    /* Zoom in effect on hover */
+    .navbar a.nav-link:hover {
+    transform: scale(1.1);
+    /* Scale up to 110% on hover (zoom in effect) */
+    }
+    /* Other CSS styles */
+    /* Add your custom styles here */
+div
+  button#userButton.btn(onclick="navigateTo('#')")
+    i.fas.fa-user-circle
+    |  User
+  button#logoutButton.btn((href ='/logout' logout))
+    i.fas.fa-power-off
+    |  Logout
+#loginForm.login-form
+  h2#lead Login
+  form(action='/login' method='POST')
+    .form-group
+      label(for='email') Email:
+      input#email.form-control(type='email')
+      label(for='password') Password:
+      input#password.form-control(type='password')
+      input(type='checkbox' onclick='togglePassword()')
+      |  Show Password
+      br
+      input(type='checkbox' onclick='togglePassword()')
+      |  Remember me
+    button.btn.btn-primary(type='submit') Login
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+

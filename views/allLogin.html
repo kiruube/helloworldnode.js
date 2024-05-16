@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daycare System</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Navbar styling */
+      .navbar a.nav-link {
+        color: #fff;
+        /* Default text color */
+        text-decoration: none;
+        transition: transform 0.3s ease, color 0.3s ease;
+        /* Apply transition effect to transform and color */
+      }
+
+      /* Zoom in effect on hover */
+      .navbar a.nav-link:hover {
+        transform: scale(1.1);
+        /* Scale up to 110% on hover (zoom in effect) */
+      }
+
+      /* Other CSS styles */
+      /* Add your custom styles here */
+    </style>
+  </head>
+
+  <body>
+
+    <div>
+      <button class="btn" id="userButton" onclick="navigateTo('#')">
+        <i class="fas fa-user-circle"></i> User
+      </button>
+      <button class="btn" id="logoutButton" onclick="logout()">
+        <i class="fas fa-power-off"></i> Logout
+      </button>
+    </div>
+  </div>
+
+    <div class="login-form" id="loginForm">
+      <h2 id="lead">Login</h2>
+      <form action="/login" method="POST">
+        <div class="form-group">
+          <label for="loginType">Login as:</label>
+          <select class="form-control" id="loginType">
+            <option value="admin">Admin</option>
+            <option value="stuff">Stuff</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" />
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" />
+          <input type="checkbox" onclick="togglePassword()" /> Show Password
+          <br>
+          <input type="checkbox" onclick="togglePassword()" /> Remember me
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

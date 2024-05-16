@@ -1,67 +1,80 @@
 //Dependencies
-const express = require('express');// for express
-const mongoose = require('mongoose');
-const path = require('path');// for pug
-
+const express = require("express"); // for express
+const mongoose = require("mongoose");
+const path = require("path"); // for pug
+const passport = require("passport");
+const expressSession = require("express-session")({
+  secret: "secret",
+  resave: false,
+  saveUninitialized: false,
+});
 
 require("dotenv").config();
 
+//Import register model with user details
+const AdminRegistration = require("./models/adminRegistration");
+
+
+const port = 3000;
+
 //importing routes
 const registrationRoutes = require("./routes/registrationRoutes");
-
+const contactRoutes = require("./routes/contactRoutes");
+const adminRegistration = require("./routes/adminRegRoutes");
+const authenticationRoutes = require("./routes/authenticationRoutes");
 //Instantiations
 const app = express();
 
-
 // Configurations
- mongoose.connect(process.env.DATABASE,{
-     useNewUrlParser: true,
-     useUnifiedTopology: true,
- })
- mongoose.connection
- .once("open", () => {
-     console.log("Mongoose connection open");
-   })
-   .on("error", err => {
-     console.error(`Connection error: ${err.message}`);
+mongoose.connect(process.env.DATABASE, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+mongoose.connection
+  .once("open", () => {
+    console.log("Mongoose connection open");
+  })
+  .on("error", (err) => {
+    console.error(`Connection error: ${err.message}`);
   });
 
-app.set("view engine", "pug");// setting view engine to pug
-app.set("views", path.join(__dirname, "views"));// specifying the directory the views are found
-
-
-
-
+app.set("view engine", "pug"); // setting view engine to pug
+app.set("views", path.join(__dirname, "views")); // specifying the directory the views are found
 
 // Middleware
-app.use(express.static(path.join(__dirname, "public")));// set directory for static files
-app.use(express.urlencoded({extended:true}));
-app.use(express.json());// To return data in the response path
-
-
-
+app.use(express.static(path.join(__dirname, "public"))); // set directory for static files
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // To return data in the response path
+//Express session configs
+app.use(expressSession);
+app.use(passport.initialize()); //intialising passport to keep track
+app.use(passport.session()); //the session that passport offers for the user to login into the system
+//passport configs
+passport.use(AdminRegistration.createStrategy()); //importing models in this file that we require for logging in
+passport.serializeUser(AdminRegistration.serializeUser); //assigning a unique serial number once you are logged into the system
+passport.deserializeUser(AdminRegistration.deserializeUser); //the serial number is destoryed after logging out
 
 // Routes
-
-app.get("/register", (req, res) => {
-    res.render("registration");
-});
 //use imported routes
-app.use("/", registrationRoutes);
+app.use("/baby", registrationRoutes);
 
+app.use("/", contactRoutes);
 
-app.get("/babylist", (req, res) => {
-    res.render("babylist");
-});
-app.get("/login", (req, res) => {
-    res.render("login");
-});
+app.use("/", adminRegistration);
 
+app.use("/", authenticationRoutes);
 
+// app.get("/register", (req, res) => {
+//     res.render("registration");
+// });
 
-
-
-// app.get('/', (req, res) => { 
+// app.get("/babylist", (req, res) => {
+//     res.render("babylist");
+// });
+// app.get("/login", (req, res) => {
+//     res.render("login");
+// });
+// app.get('/', (req, res) => {
 //     res.send('Homepage! Hello world.');
 //   });
 
@@ -81,8 +94,6 @@ app.get("/login", (req, res) => {
 //     console.log(req.params);
 //     console.log(req.params.bookId);
 // });
-
-
 
 // app.get('/students/:name',(req, res) => {
 //     res.send("This my students name " + req.params.name);
@@ -122,9 +133,9 @@ app.get("/login", (req, res) => {
 // });
 
 // For invalid routes
-app.get('*', function(req, res){
-    res.send("404! This is an invalid URI");
-})
+app.get("*", function (req, res) {
+  res.send("404! This is an invalid URI");
+});
 
 // BootstrappingServer
-app.listen(3000, () => console.log('listening on port 3000')); // new
+app.listen(3000, () => console.log(`listening on port ${[port]}`)); // new
